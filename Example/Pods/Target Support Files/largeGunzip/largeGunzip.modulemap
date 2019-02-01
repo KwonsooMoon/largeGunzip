@@ -1,0 +1,6 @@
+framework module largeGunzip {
+  umbrella header "largeGunzip-umbrella.h"
+
+  export *
+  module * { export * }
+}

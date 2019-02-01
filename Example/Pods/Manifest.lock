@@ -1,0 +1,16 @@
+PODS:
+  - largeGunzip (0.1.0)
+
+DEPENDENCIES:
+  - largeGunzip (from `../`)
+
+EXTERNAL SOURCES:
+  largeGunzip:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  largeGunzip: 357e13bfc3da662b37ef54c04da77963e9f9b490
+
+PODFILE CHECKSUM: 5725d48cbeca342c7ad3ac3e195fe6cdf2ad73b1
+
+COCOAPODS: 1.5.3

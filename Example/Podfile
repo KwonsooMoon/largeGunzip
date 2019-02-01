@@ -1,0 +1,6 @@
+use_frameworks!
+target 'largeGunzip_Tests' do
+  pod 'largeGunzip', :path => '../'
+  
+  
+end

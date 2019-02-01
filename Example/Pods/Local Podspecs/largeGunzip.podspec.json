@@ -1,0 +1,22 @@
+{
+  "name": "largeGunzip",
+  "version": "0.1.0",
+  "summary": "A short description of largeGunzip.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Kwonsoo Moon/largeGunzip",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kwonsoo Moon": "kwonsoo.moon@kt.com"
+  },
+  "source": {
+    "git": "https://github.com/Kwonsoo Moon/largeGunzip.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "largeGunzip/Classes/**/*"
+}
