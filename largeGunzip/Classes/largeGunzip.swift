@@ -130,7 +130,7 @@ private func appendData(_ data: Data, to fileHandle: FileHandle) {
     fileHandle.write(data)
 }
 
-private func createFile(at filePath: String, initialData: Data) -> FileHandle {
+private func createFile(at filePath: String, initialData: Data) -> FileHandle? {
     
     if let existing = FileHandle(forWritingAtPath: filePath) {
         existing.seekToEndOfFile()
@@ -138,7 +138,7 @@ private func createFile(at filePath: String, initialData: Data) -> FileHandle {
         return existing
     } else {
         FileManager.default.createFile(atPath: filePath, contents: initialData, attributes: nil)
-        return FileHandle(forWritingAtPath: filePath)!
+        return FileHandle(forWritingAtPath: filePath)
     }
 }
 
@@ -186,6 +186,10 @@ private func perform(_ config: Config,
                 fileHandle = createFile(at: filePath, initialData: Data(bytes: buffer, count: stream.dst_ptr - buffer))
             }
             
+            if fileHandle == nil {
+                return false
+            }
+            
             progress?( Double(sourceSize - stream.src_size) / Double(sourceSize))
             stream.dst_ptr = buffer
             stream.dst_size = bufferSize
@@ -196,6 +200,10 @@ private func perform(_ config: Config,
                 appendData(Data(bytes: buffer, count: stream.dst_ptr - buffer), to: handle)
             } else {
                 fileHandle = createFile(at: filePath, initialData: Data(bytes: buffer, count: stream.dst_ptr - buffer))
+            }
+            
+            if fileHandle == nil {
+                return false
             }
             
             progress?( Double(sourceSize - stream.src_size) / Double(sourceSize))
